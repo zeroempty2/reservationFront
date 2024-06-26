@@ -3,21 +3,17 @@ import { Routes, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './pages/css/style.css';
-import signIcon from './img/sign-icon.jpg'; 
 
-import { URL_VARIABLE } from "./pages/ExportUrl"; 
-import Review from "./pages/Review";
-import Home from "./pages/Home";
-import Signup from "./pages/Singup";
+
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Store from "./pages/Store";
 import Login from "./pages/Login";
-import Reservation from "./pages/Reservation";
-import ReservationList from "./pages/ReservationList";
-import WriteReview from "./pages/WriteReview";
+import { URL_VARIABLE } from "./pages/export/ExportUrl"; 
+import Home from "./pages/Home";
+import Signup from "./pages/Singup";
+
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -153,12 +149,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} /> 
-        <Route path="/reviews/:id" element={<Review />} />
-        <Route path="/stores/:id" element={<Store />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/reservations/:id" element={<Reservation />} />
-        <Route path="/reservationList" element={<ReservationList />} />
-        <Route path="/writeReview/:id1/:id2" element={<WriteReview />} />
       </Routes>
       
       {/* <div className="bottom-contents">
