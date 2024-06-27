@@ -1,0 +1,94 @@
+.contents-section {
+    position: relative;
+    border-left: 1px solid #ccc; 
+    border-right: 1px solid #ccc; 
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    height: 100vh; /* 세로 방향을 화면 가득 채움 */
+    box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 크기 계산 */
+  }
+  .main-square{
+    display: flex;
+    width: 700px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.938);
+    border-top-left-radius: 7px; 
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } 
+
+  .non-member{
+    background-color: #414141;
+    border: none; 
+    border-radius: 12px; 
+    padding: 20px 100px;
+    color: #fff; 
+    font-size: 25px;
+    cursor: pointer; 
+    transition: background-color 0.3s;  
+    font-weight: 100;
+    margin-bottom: 5px;
+  }
+  
+  .non-member:hover {
+    background-color: #b0b0b0; 
+  }
+
+  .member{
+    margin-top: 5px;
+    background-color: #414141;
+    border: none; 
+    border-radius: 12px; 
+    padding: 20px 112px;
+    color: #fff; 
+    font-size: 25px;
+    cursor: pointer; 
+    transition: background-color 0.3s;  
+    font-weight: 100;
+  }
+  
+  .member:hover {
+    background-color: #b0b0b0; 
+  }
+
+  .login-text{
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .login-text-password{
+    margin-right: 10px;
+  }
+
+  .login-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .login-input{
+    width: 300px;
+    height: 40px;
+  }
+
+  .login-title {
+    position: absolute;
+    top: 325px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    font-size: 24px; 
+    font-weight: bold;
+    color: #333; 
+  }

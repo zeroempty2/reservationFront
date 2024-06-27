@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './pages/css/style.css';
-
-
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './pages/css/style.css';
+
 import Login from "./pages/Login";
 import { URL_VARIABLE } from "./pages/export/ExportUrl"; 
-import Home from "./pages/Home";
+import Main from "./pages/Main";
 import Signup from "./pages/Singup";
-
+import MainLogin from "./pages/MainLogin";
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -99,7 +99,7 @@ function App() {
   return (
     <div className="App">
       <Navbar expand="lg" className="navbar-custom">
-        <Navbar.Brand><Link to="/" className = "title">Home</Link></Navbar.Brand>
+        <Navbar.Brand><Link to="/" className = "title"> 예약 </Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <div className = "space"></div>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -148,11 +148,12 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path="/" element={<Home />} /> 
+        <Route path="/" element={<Main isLoggedIn={isLoggedIn} />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<MainLogin />} />
       </Routes>
       
-      {/* <div className="bottom-contents">
+      {/* <div className="bottom-contents">`
               
       </div> */}
       {showLoginModal && <Login onClose={closeLoginModal} onLoginSuccess={handleLoginSuccess}/>}
