@@ -60,7 +60,7 @@ const Login = ({ onClose , onLoginSuccess }) => {
 
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>회원ID</Form.Label>
+        <Form.Label>아이디</Form.Label>
         <Form.Control 
           type="text"   
           name="username"

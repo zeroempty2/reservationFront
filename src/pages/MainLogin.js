@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { URL_VARIABLE } from "./export/ExportUrl"; 
 import './css/Main.css'
 
 const MainLogin = () => {
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         username: '',
         password: '',
       });
+    const backImage = '/back.png';
+
+
+    const handleBackClick = () => {
+            navigate('/');
+        };
 
       const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -19,10 +27,9 @@ const MainLogin = () => {
       };
 
     const handleLogin = async () => { 
-    console.log(userData)
     try {
-      const response = await axios.post( URL_VARIABLE + 'users/signUp', userData);
-      window.location.href = '/'; 
+      await axios.post( URL_VARIABLE + 'users/login', userData);
+      navigate('/category')
     } catch (error) {
       alert("입력하신 정보를 다시 확인하여 주세요");
     }
@@ -31,8 +38,9 @@ const MainLogin = () => {
     return(
         <div className='contents-section'>
             <div className='main-square'>
+            <div className="back-img" style={{ backgroundImage: `url(${backImage})` }} onClick={() => handleBackClick()} ></div>
                 <p className='login-title'>로그인</p>
-            <Form>
+            <Form className='login-form-group'>
         <Form.Group className="login-form" controlId="formBasicId">
         <Form.Label className='login-text'>아이디</Form.Label>
         <Form.Control 
@@ -56,9 +64,11 @@ const MainLogin = () => {
       </Form.Group>
 
       <Button variant="primary" onClick={handleLogin} className='login-request-button'>
-        로그인
+        <span className='login-request-word'>로그인</span>
       </Button>
     </Form>
+    <Link to={`/signup`}> <p className='login-signup'>계정 만들기</p></Link>
+   
             </div>
         </div>
     );
