@@ -16,8 +16,8 @@
   }
   .main-square{
     display: flex;
-    width: 700px;
-    height: 600px;
+    width: 800px;
+    height: 700px;
     background-color: rgba(255, 255, 255, 0.938);
     border-top-left-radius: 35px; 
     border-top-right-radius: 5px; 
@@ -93,6 +93,7 @@
     font-weight: bold;
     color: #333; 
   }
+
   .login-request-button{
     display: flex;
     justify-content: center;
@@ -120,8 +121,10 @@
   }
   
   .login-signup{
-    margin-left:20px;
-    margin-top: 150px;
+    position: absolute;
+    top: 740px;
+    left: 675px;
+
     color: black; 
     text-decoration: none; 
   }
@@ -135,13 +138,15 @@
   }
 
   .login-form-group{
-    margin-top: 170px;
+    margin-top: 15px;
   }
 
   .back-img{
+    position:absolute;
+    top: 145px;
     width: 38px; 
     height: 40px;
     background-position: center; 
-    margin-right: 600px;
-    margin-bottom: 3px;
+    margin-right: 700px;
+    z-index: 10;
   }
