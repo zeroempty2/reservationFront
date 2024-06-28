@@ -14,6 +14,7 @@ import { URL_VARIABLE } from "./pages/export/ExportUrl";
 import Main from "./pages/Main";
 import Signup from "./pages/Singup";
 import MainLogin from "./pages/MainLogin";
+import Category from "./pages/Category";
 
 function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -151,6 +152,7 @@ function App() {
         <Route path="/" element={<Main isLoggedIn={isLoggedIn} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<MainLogin />} />
+        <Route path="/category" element={<Category />} />
       </Routes>
       
       {/* <div className="bottom-contents">`

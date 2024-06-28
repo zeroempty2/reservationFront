@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/Main.css';
-import MainLogin from './MainLogin';    // 로그인 페이지 컴포넌트
+
 
 
 const Main = ({ isLoggedIn }) => {
@@ -9,17 +9,21 @@ const Main = ({ isLoggedIn }) => {
 
     const handleMemberClick = () => {
         if (isLoggedIn) {
-            navigate('/memberPage'); 
+            navigate('/category'); 
         } else {
             navigate('/login');
         }
     };
 
+    const handleNonMemberClick = () => {
+            navigate('/category'); 
+    }
+
 
     return (
         <div className='contents-section'>
             <div className='main-square'>
-                <button className='non-member' >비회원 진행</button>
+                <button className='non-member' onClick={handleNonMemberClick}>비회원 진행</button>
                 <button className='member' onClick={handleMemberClick}>회원 진행</button>
             </div>
         </div>
