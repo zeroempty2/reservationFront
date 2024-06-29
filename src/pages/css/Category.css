@@ -80,6 +80,7 @@
     font-family: "Jua", sans-serif;
     font-weight: 400;
     font-style: normal;
+    user-select: none; 
   }
 
   .rest-img {
@@ -97,6 +98,7 @@
     font-family: "Jua", sans-serif;
     font-weight: 400;
     font-style: normal;
+    user-select: none; 
   }
 
   .work-img {
@@ -114,6 +116,7 @@
     font-family: "Jua", sans-serif;
     font-weight: 400;
     font-style: normal;
+    user-select: none; 
   }
 
   .other-img {
@@ -131,6 +134,7 @@
     font-family: "Jua", sans-serif;
     font-weight: 400;
     font-style: normal;
+    user-select: none; 
   }
 
   .category-title{
@@ -140,4 +144,5 @@
     font-weight: 600;
     font-style: normal;
     font-size: 30px;
+    user-select: none; 
   }

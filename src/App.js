@@ -12,7 +12,7 @@ import './pages/css/style.css';
 import Login from "./pages/Login";
 import { URL_VARIABLE } from "./pages/export/ExportUrl"; 
 import Main from "./pages/Main";
-import Signup from "./pages/Singup";
+import Signup from "./pages/SignUp";
 import MainLogin from "./pages/MainLogin";
 import Category from "./pages/Category";
 

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { URL_VARIABLE } from "./export/ExportUrl"; 
-import './css/style.css';
+import './css/SignUp.css'
 
 const Signup = () => {
+  const navigate = useNavigate();
     const [userData, setUserData] = useState({
         username: '',
         password: '',
         nickName:'',
-        phoneNumber:''
+        phoneNumber:'',
+        email:''
       });
 
       const handleInputChange = (event) => {
@@ -20,11 +23,15 @@ const Signup = () => {
         });
       };
 
+    const handleBackClick = () => {
+        navigate('/'); 
+}
+
     const handleSignup = async () => { 
     console.log(userData)
     try {
-      const response = await axios.post( URL_VARIABLE + 'users/signUp', userData);
-      window.location.href = '/'; 
+     await axios.post( URL_VARIABLE + 'users/signUp', userData);
+     navigate('/'); 
     } catch (error) {
       alert("입력하신 정보를 다시 확인하여 주세요");
     }
@@ -33,10 +40,11 @@ const Signup = () => {
   return (
 
     <div className='contents-section'>
-      <div className='signUpSpace'></div>
- <Form>
+        <div className="back-img" style={{ backgroundImage: `url('/back.png')` }} onClick={() => handleBackClick()} ></div>
+        <div className='main-square'>
+        <Form>
         <Form.Group className="mb-3" controlId="formBasicId">
-        <Form.Label className='signUpText'>회원ID</Form.Label>
+        <Form.Label className='signUpText'>아이디</Form.Label>
         <Form.Control 
           type="text"   
           name="username"
@@ -75,17 +83,33 @@ const Signup = () => {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className='signUpText'>전화번호</Form.Label>
+        <Form.Label className='signUpText'>전화번호(선택)</Form.Label>
         <Form.Control 
         type="number"
         name="phoneNumber"
         value={userData.phoneNumber}
         onChange={handleInputChange}
-        placeholder="전화번호를 입력해 주세요" />
+        inputMode="numeric"
+        placeholder="전화번호를 입력해 주세요"
+        className="no-arrows"
+         />
         <Form.Text className='signUpText'>
+          -를 제외하고 입력해주세요
         </Form.Text>
       </Form.Group>
 
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label className='signUpText'>이메일</Form.Label>
+        <Form.Control 
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleInputChange}
+            placeholder="이메일을 입력해 주세요"
+         />
+        <Form.Text className='signUpText'>
+        </Form.Text>
+      </Form.Group>
      
 {/* 
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -95,6 +119,9 @@ const Signup = () => {
         회원가입
       </Button>
     </Form>
+        </div>
+
+ 
     </div>
    
   );
