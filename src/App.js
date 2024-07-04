@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 import Nav from 'react-bootstrap/Nav';
@@ -9,7 +9,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './pages/css/style.css';
 
-import Login from "./pages/Login";
 import { URL_VARIABLE } from "./pages/export/ExportUrl"; 
 import Main from "./pages/Main";
 import Signup from "./pages/SignUp";
@@ -17,10 +16,10 @@ import MainLogin from "./pages/MainLogin";
 import Category from "./pages/Category";
 
 function App() {
-  const [showLoginModal, setShowLoginModal] = useState(false);
   const [userProfile, setUserProfile] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isProfileLoading, setIsProfileLoading] = useState(true); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,19 +80,9 @@ function App() {
     setIsLoggedIn(false);
   }
 
-  const openLoginModal = () => {
-    console.log("show")
-    setShowLoginModal(true);
-  };
-
-  const closeLoginModal = () => {
-    setShowLoginModal(false);
-  };
-
-  const handleLoginSuccess = () => {
-    setIsLoggedIn(true);
-    setShowLoginModal(false); 
-  };
+  const handleLogin = () =>{
+    navigate('/login');
+  }
 
 
 
@@ -116,7 +105,7 @@ function App() {
             {!isLoggedIn && (
               <Nav.Link>
                   {/* <img src={signIcon} alt="sign" className = "signIcon"/> */}
-                <span onClick={openLoginModal}>로그인</span>
+                <span onClick={handleLogin}>로그인</span>
               </Nav.Link>
             )}
             {isLoggedIn && (
@@ -158,7 +147,7 @@ function App() {
       {/* <div className="bottom-contents">`
               
       </div> */}
-      {showLoginModal && <Login onClose={closeLoginModal} onLoginSuccess={handleLoginSuccess}/>}
+
     </div>
 
   
