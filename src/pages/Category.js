@@ -18,6 +18,11 @@ const Category = () => {
         navigate(-1);
     };
 
+    const navigateCategoryItem = (category) => {
+        navigate(`/items/${category}`);
+    }
+
+
     return(
         <div className='contents-section'>
             <p className='category-title'>카테고리 선택</p>
@@ -27,23 +32,23 @@ const Category = () => {
             <div className='main-square'>
                 <div className='div-top'>
                     <div className='div-top-left'>
-                        <div className="exercise-img" style={{ backgroundImage: `url(${exercise})` }}></div>
+                        <div className="exercise-img" style={{ backgroundImage: `url(${exercise})` }} onClick={() => navigateCategoryItem('Exercise')}></div>
                         <p className="exercise-word">운동</p>
                     </div>
 
                     <div className='div-top-right'>
-                        <div className="rest-img" style={{ backgroundImage: `url(${rest})` }}></div>
+                        <div className="rest-img" style={{ backgroundImage: `url(${rest})` }}  onClick={() => navigateCategoryItem('Leisure')}></div>
                         <p className="rest-word">여가</p>
                     </div>
                 </div>
                 <div className='div-bottom'>
                     <div className='div-bottom-left'>
-                        <div className="work-img" style={{ backgroundImage: `url(${work})` }}></div>
+                        <div className="work-img" style={{ backgroundImage: `url(${work})` }}  onClick={() => navigateCategoryItem('Work')}></div>
                         <p className="work-word">사무</p>
                     </div>
 
                     <div className='div-bottom-right'>
-                        <div className="other-img" style={{ backgroundImage: `url(${other})` }}></div>
+                        <div className="other-img" style={{ backgroundImage: `url(${other})` }} onClick={() => navigateCategoryItem('Etc')}></div>
                         <p className="other-word">기타</p>
                     </div>
                 </div>
