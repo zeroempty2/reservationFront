@@ -14,6 +14,7 @@ import Main from "./pages/Main";
 import Signup from "./pages/SignUp";
 import MainLogin from "./pages/MainLogin";
 import Category from "./pages/Category";
+import ItemList from "./pages/ItemList";
 
 function App() {
   const [userProfile, setUserProfile] = useState([]);
@@ -142,6 +143,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<MainLogin />} />
         <Route path="/category" element={<Category />} />
+        <Route path="/itemList" element={<ItemList />} />
       </Routes>
       
       {/* <div className="bottom-contents">`
